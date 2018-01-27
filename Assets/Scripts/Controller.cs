@@ -15,15 +15,24 @@ public class Controller : MonoBehaviour {
     float lastDirectionUpdate = 0f;
     
     public GameObject hpBar;
+    public GameObject gameMaster;
 
     public float maxHP = 100f;
     float health = 100f;
 
+    public AudioClip driveAudio;
+    public AudioClip crashAudio;
+    public AudioClip turnAudio;
     void Start()
     {
      rigidbody2D = this.GetComponent<Rigidbody2D>();
         lastDirectionUpdate = Time.time;
         health = maxHP;
+
+
+
+        //driveAudio = Resources.Load("Sounds/drive.wav", typeof(AudioClip)) as AudioClip;
+        //crashAudio = Resources.Load("Sounds/crash.wav", typeof(AudioClip)) as AudioClip;
     }
 
     // Update is called once per frame
@@ -40,6 +49,14 @@ public class Controller : MonoBehaviour {
         {
             rigidbody2D.AddForce(transform.up * power * direction);
             rigidbody2D.drag = friction;
+            if (!this.GetComponent<AudioSource>().isPlaying)
+            {
+                this.GetComponent<AudioSource>().PlayOneShot(driveAudio);
+            }
+        }
+        else
+        {
+            this.GetComponent<AudioSource>().Stop();
         }
         if (CustomInputScript.GetKeyDown(Command.SwitchDirection))
         {
@@ -135,10 +152,20 @@ public class Controller : MonoBehaviour {
         Debug.Log(health);
         Debug.Log(health / maxHP);
         hpBar.GetComponent<RectTransform>().sizeDelta = new Vector2(health / maxHP * 100, 19);
-        hpBar.transform.position = new Vector2(hpBar.transform.position.x - amnt, hpBar.transform.position.y);
+        hpBar.transform.position = new Vector2(hpBar.transform.position.x - amnt/2, hpBar.transform.position.y);
+
+        this.GetComponent<AudioSource>().Stop();
+
         if(health<=0)
         {
             SceneManager.LoadScene("GameOverScreen");
         }
+    }
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        this.GetComponent<AudioSource>().PlayOneShot(crashAudio);
+        if (coll.gameObject.tag == "Finish")
+            SceneManager.LoadScene("GameOverScreen");
+
     }
 }

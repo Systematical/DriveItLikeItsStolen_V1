@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PoliceScript : MonoBehaviour {
     public int policespeed = 20;
+    public AudioClip crashAudio;
 	// Use this for initialization
 	void Start () {
         this.GetComponent<Rigidbody2D>().velocity = this.transform.up * policespeed;
@@ -18,7 +19,8 @@ public class PoliceScript : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Player")
             coll.gameObject.SendMessage("ApplyDamage", 10);
+        this.GetComponent<AudioSource>().PlayOneShot(crashAudio);
         
-        Destroy(this.gameObject);
+        Destroy(this.gameObject,5);
     }
 }
