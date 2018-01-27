@@ -10,13 +10,20 @@ public class Controller : MonoBehaviour {
     public float power = 1000;
     public float friction = 3;
     public float turnpower =5;
+    public float maxTurn = 10;
     float direction = 1;
     float lastDirectionUpdate = 0f;
+    
+    public GameObject hpBar;
+
+    public float maxHP = 100f;
+    float health = 100f;
 
     void Start()
     {
      rigidbody2D = this.GetComponent<Rigidbody2D>();
         lastDirectionUpdate = Time.time;
+        health = maxHP;
     }
 
     // Update is called once per frame
@@ -45,13 +52,61 @@ public class Controller : MonoBehaviour {
         }
         if (CustomInputScript.GetKeyDown(Command.LeftTurn))
         {
-            transform.Rotate(Vector3.forward * turnpower);
+            rigidbody2D.AddTorque(turnpower * curspeed.magnitude / maxspeed);
+            if (rigidbody2D.angularVelocity > maxTurn)
+            {
+                rigidbody2D.angularVelocity = maxTurn;
+            }
         }
         if (CustomInputScript.GetKeyDown(Command.RightTurn))
         {
-            transform.Rotate(Vector3.forward * -turnpower);
+            rigidbody2D.AddTorque(-turnpower * curspeed.magnitude / maxspeed);
+            if (rigidbody2D.angularVelocity > maxTurn)
+            {
+                rigidbody2D.angularVelocity = maxTurn;
+            }
+            // transform.Rotate(Vector3.forward * -turnpower);
         }
 
+        if (CustomInputScript.GetKeyDown(Command.RightBrake))
+        {
+            if(rigidbody2D.velocity.magnitude > 0)
+            {
+                //Debug.Log(rigidbody2D.velocity.magnitude);
+                float yVel = transform.InverseTransformDirection(rigidbody2D.velocity).y;
+                if (yVel<4)
+                {
+                    rigidbody2D.velocity = new Vector2(0, 0);
+                }
+                else
+                {
+                    rigidbody2D.AddForce(transform.up * -1 * power);
+                    rigidbody2D.AddTorque(-turnpower);
+                }
+            }
+
+        }
+        if (CustomInputScript.GetKeyDown(Command.LeftBrake))
+        {
+            if (rigidbody2D.velocity.magnitude > 0)
+            {
+                float yVel = transform.InverseTransformDirection(rigidbody2D.velocity).y;
+                if (yVel < 4)
+                {
+                    rigidbody2D.velocity = new Vector2(0, 0);
+                }
+                else
+                {
+                    rigidbody2D.AddForce(transform.up * -1 * power);
+                    rigidbody2D.AddTorque(turnpower);
+                }
+            }
+
+        }
+        if(!CustomInputScript.GetKeyDown(Command.LeftTurn) && !CustomInputScript.GetKeyDown(Command.RightTurn) && !CustomInputScript.GetKeyDown(Command.LeftBrake) && !CustomInputScript.GetKeyDown(Command.RightBrake)  )
+        {
+            rigidbody2D.angularVelocity = 0;
+        }
         noGas();
 
     }
@@ -72,5 +127,18 @@ public class Controller : MonoBehaviour {
             rigidbody2D.drag = friction * 2;
         }
     }
-
+    
+    void ApplyDamage(int amnt)
+    {
+        Debug.Log(health);
+        health -= amnt;
+        Debug.Log(health);
+        Debug.Log(health / maxHP);
+        hpBar.GetComponent<RectTransform>().sizeDelta = new Vector2(health / maxHP * 100, 19);
+        hpBar.transform.position = new Vector2(hpBar.transform.position.x - amnt, hpBar.transform.position.y);
+        if(health<=0)
+        {
+            SceneManager.LoadScene("GameOverScreen");
+        }
+    }
 }

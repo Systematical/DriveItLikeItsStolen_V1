@@ -42,10 +42,10 @@ public class BasicButtonScript : MonoBehaviour {
                 myButton.onClick.AddListener(() => { Debug.Log("Qutting Game."); Application.Quit(); });
                 break;
             case ButtonType.start:
-                myButton.onClick.AddListener(() => { Debug.Log("Entering Game Scene."); SceneManager.LoadScene("GameScene"); });
+                myButton.onClick.AddListener(() => { Debug.Log("Entering Game Scene."); SceneManager.LoadScene("GameScreen"); });
                 break;
             case ButtonType.instructions:
-                myButton.onClick.AddListener(() => { Debug.Log("Entering Instructions Scene."); SceneManager.LoadScene("InstructionsScene"); });
+                myButton.onClick.AddListener(() => { Debug.Log("Entering Instructions Scene."); SceneManager.LoadScene("InstructionsScreen"); });
                 break;
         }
     }

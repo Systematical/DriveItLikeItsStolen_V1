@@ -11,17 +11,6 @@ public static class CustomInputScript {
 
     static Dictionary<Command, KeyCode> keyMapping;
 
-    static KeyCode[] defaults = new KeyCode[6]
-    {
-        KeyCode.Q,
-        KeyCode.E,
-        KeyCode.UpArrow,
-        KeyCode.DownArrow,
-        KeyCode.LeftArrow,
-        KeyCode.RightArrow
-
-    };
-
     static CustomInputScript()
     {
         InitializeDictionary();
@@ -34,8 +23,9 @@ public static class CustomInputScript {
             { Command.Drive, KeyCode.UpArrow },
             { Command.SwitchDirection, KeyCode.DownArrow },
             { Command.LeftTurn, KeyCode.LeftArrow },
-            { Command.RightTurn, KeyCode.RightArrow }
-
+            { Command.RightTurn, KeyCode.None },
+            { Command.RightBrake, KeyCode.None },
+            { Command.LeftBrake, KeyCode.RightArrow }
         };
         
     }
