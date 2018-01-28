@@ -36,29 +36,18 @@ public class ClickDragScript : MonoBehaviour {
 
     private void OnMouseUp()
     {
-        if(!(Nearest == null))
+        if(!(Nearest == emptySocket))
         {
             this.transform.position = Nearest.transform.position;
-            if(this.ID==1)
-            {
-                this.SendMessageUpwards("finalizePoint1", this.Nearest);
-            }
-            else
-            {
-                this.SendMessageUpwards("finalizePoint0", this.Nearest);
-            }
             this.SendMessageUpwards("MovePoint");
+        }
+        if (this.ID == 1)
+        {
+            this.SendMessageUpwards("finalizePoint1", Nearest);
         }
         else
         {
-            if (this.ID == 1)
-            {
-                this.SendMessageUpwards("finalizePoint1", emptySocket);
-            }
-            else
-            {
-                this.SendMessageUpwards("finalizePoint0", emptySocket);
-            }
+            this.SendMessageUpwards("finalizePoint0", Nearest);
         }
     }
 
@@ -72,6 +61,6 @@ public class ClickDragScript : MonoBehaviour {
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Nearest = null;
+        Nearest = emptySocket;
     }
 }

@@ -17,7 +17,7 @@ public class GameMasterScript : MonoBehaviour {
     public AudioSource playerAudio;
     public AudioSource radioAudio;
 
-    public static AudioClip driveAudio;
+
     // Use this for initialization
     void Start () {
         Random r = new Random();
@@ -32,13 +32,7 @@ public class GameMasterScript : MonoBehaviour {
             }
             Instantiate(RockPrefab, new Vector3(Random.Range(xmin, xmax), Random.Range(-ymin, -ymax), 0), Quaternion.identity);
         }
-
-         driveAudio = Resources.Load("Sounds/drive.wav", typeof(AudioClip)) as AudioClip;
-        AudioClip turnAudio = Resources.Load("Sounds/turning.wav", typeof(AudioClip)) as AudioClip;
-        AudioClip crashAudio = Resources.Load("Sounds/crash.wav", typeof(AudioClip)) as AudioClip;
-
-        AudioClip radioMusic1 = Resources.Load("Sounds/music_moonlightsonata.wav", typeof(AudioClip)) as AudioClip;
-        AudioClip radioMusic2 = Resources.Load("Sounds/music_regatonn.wav", typeof(AudioClip)) as AudioClip;
+        
     }
 	
 	// Update is called once per frame

@@ -67,6 +67,11 @@ public class Controller : MonoBehaviour {
                 Debug.Log(direction);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject.Find("Transmission").SendMessage("toggleDisplay");
+        }
         if (CustomInputScript.GetKeyDown(Command.LeftTurn))
         {
             rigidbody2D.AddTorque(turnpower * curspeed.magnitude / maxspeed);

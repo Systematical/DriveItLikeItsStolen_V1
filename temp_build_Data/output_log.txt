@@ -17,19 +17,46 @@ Platform assembly: C:\Users\shpil\Documents\DriveItLikeItsStolen_V1\temp_build_D
 Loading C:\Users\shpil\Documents\DriveItLikeItsStolen_V1\temp_build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\shpil\Documents\DriveItLikeItsStolen_V1\temp_build_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\shpil\Documents\DriveItLikeItsStolen_V1\temp_build_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.179 seconds
+- Completed reload, in  0.197 seconds
 Platform assembly: C:\Users\shpil\Documents\DriveItLikeItsStolen_V1\temp_build_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\shpil\Documents\DriveItLikeItsStolen_V1\temp_build_Data\Managed\System.dll (this message is harmless)
 desktop: 3000x2000 60Hz; virtual: 3000x2000 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.389741 ms
-Entering Game Scene.
+UnloadTime: 2.114049 ms
+Entering Instructions Scene.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Scene 'GameScene' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+Scene 'InstructionsScreen' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 127)
+
+Entering Instructions Scene.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Scene 'InstructionsScreen' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 127)
+
+Entering Instructions Scene.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Scene 'InstructionsScreen' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
+To add a scene to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 127)
+
+Entering Instructions Scene.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Scene 'InstructionsScreen' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
 To add a scene to the build settings use the menu File->Build Settings...
  
 (Filename:  Line: 127)
@@ -38,23 +65,45 @@ Entering Game Scene.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Scene 'GameScene' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
-To add a scene to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 127)
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.874866 ms
 
-Entering Game Scene.
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 318.
+Total: 0.284717 ms (FindLiveObjects: 0.055384 ms CreateObjectMapping: 0.018461 ms MarkObjects: 0.194051 ms  DeleteObjects: 0.015999 ms)
+
+-1
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Scene 'GameScene' couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
-To add a scene to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 127)
-
-Qutting Game.
+1
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+90
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.9
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+-1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.374153 ms
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 231.
+Total: 0.393845 ms (FindLiveObjects: 0.026666 ms CreateObjectMapping: 0.017230 ms MarkObjects: 0.170256 ms  DeleteObjects: 0.178871 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 5498 -> priority: 1 
+  Thread -> id: 1a40 -> priority: 1 

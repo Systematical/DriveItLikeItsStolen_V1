@@ -21,6 +21,6 @@ public class PoliceScript : MonoBehaviour {
             coll.gameObject.SendMessage("ApplyDamage", 10);
         this.GetComponent<AudioSource>().PlayOneShot(crashAudio);
         
-        Destroy(this.gameObject,5);
+        Destroy(this.gameObject);
     }
 }
